@@ -7,19 +7,27 @@
 
   {{#if shortenedUrl}}
     <div>
-      <p>轉換後的網址為:</p>
-      <p id="url">{{shortenedUrl}}</p>
-      <button id="btn-copy" data-clipboard-target="#url">
+      <p class="fs-4">轉換後的網址為:</p>
+      <p id="url" class="fs-4">{{shortenedUrl}}</p>
+      <button id="btn-copy" class="btn btn-outline-primary" data-clipboard-target="#url">
         Copy!
       </button>
+    </div>
+  {{else if reqUrl}}
+    <div>
+      <p class="fs-4">找不到原始網址，請確認短網址有沒有輸入錯誤:</p>
+      <p id="url" class="fs-4">{{reqUrl}}</p>
     </div>
   {{else}}
     <form action="/" method="POST">
       <div class="input-group mb-3">
-        <input type="url" class="form-control" name="originalUrl" id="originalUrl" placeholder="請輸入要轉換的網址" required>
+        <input type="url" class="form-control fs-4" name="originalUrl" id="originalUrl" placeholder="請輸入要轉換的網址" required>
       </div>
-      <button type="submit">產生短網址!</button>
+      {{#if alertMessage}}
+        <p class="fs-4 text-danger">{{alertMessage}}</p>
+      {{/if}}
+      <button type="submit" class="btn btn-outline-primary">產生短網址!</button>
     </form>
   {{/if}}
-  
+
 </div>
