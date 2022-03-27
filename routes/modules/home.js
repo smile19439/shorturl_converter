@@ -11,6 +11,7 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
   const originalUrl = req.body.originalUrl.trim()
 
+  // 檢查使用者有沒有輸入值
   if (originalUrl.length > 0) {
     let ShortenedUrlArray = []
     let shortenedUrl = ''
@@ -40,6 +41,7 @@ router.post('/', (req, res) => {
         return randomString
       })
       .then((randomString) => {
+        // 將生成的短網址字串存入資料庫
         if (randomString) {
           return ShortUrl.create({ originalUrl, shortenedUrl: randomString })
         }

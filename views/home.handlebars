@@ -1,5 +1,5 @@
 <div class="container mx-auto text-center mt-5">
-  <h2>Short Url Converter</h2>
+  <h1 class="fw-bold">Short Url Converter</h1>
   <div class="col">
     <img src="https://assets-lighthouse.alphacamp.co/uploads/image/file/16716/ExportedContentImage_00.png"
       class="w-25 p-5">
@@ -8,7 +8,9 @@
   {{#if shortenedUrl}}
     <div>
       <p class="fs-4">轉換後的網址為:</p>
-      <p id="url" class="fs-4">{{shortenedUrl}}</p>
+      <a href="{{shortenedUrl}}" target="_blank">
+        <p id="url" class="fs-4">{{shortenedUrl}}</p>
+      </a>
       <button id="btn-copy" class="btn btn-outline-primary" data-clipboard-target="#url">
         Copy!
       </button>
@@ -16,7 +18,7 @@
   {{else if reqUrl}}
     <div>
       <p class="fs-4">找不到原始網址，請確認短網址有沒有輸入錯誤:</p>
-      <p id="url" class="fs-4">{{reqUrl}}</p>
+      <p class="fs-4">{{reqUrl}}</p>
     </div>
   {{else}}
     <form action="/" method="POST">
